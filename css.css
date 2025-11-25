@@ -1,0 +1,340 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .mm {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .download-btn {
+      position: relative;
+      padding: 18px 50px;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      min-width: 200px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .download-btn:hover:not(.downloading):not(.completed) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .download-btn.downloading {
+      background: #4CAF50;
+      cursor: not-allowed;
+    }
+
+    .download-btn.completed {
+      background: #2196F3;
+    }
+
+    .btn-text {
+      transition: opacity 0.3s ease;
+    }
+
+    .download-icon svg,
+    .checkmark svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .spinner {
+      display: none;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .download-btn.downloading .spinner {
+      display: block;
+    }
+
+    .download-btn.downloading .download-icon {
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .progress-container {
+      margin-top: 30px;
+      width: 300px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .progress-container.active {
+      opacity: 1;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #4CAF50, #8BC34A);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+
+    .progress-text {
+      color: white;
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .progress-text.active {
+      opacity: 1;
+    }
+
+    .checkmark {
+      display: none;
+      width: 24px;
+      height: 24px;
+    }
+
+    .download-btn.completed .checkmark {
+      display: block;
+      animation: scaleIn 0.3s ease;
+    }
+
+    .download-btn.completed .spinner {
+      display: none;
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+
+       #certificates {
+      padding: 60px 0;
+    }
+
+    #certificates h2 {
+      text-align: center;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 50px;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .carousel-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .carousel-inner {
+      max-width: 900px;
+      margin: auto;
+      height: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      border: 6px solid transparent;
+      background: linear-gradient(white, white) padding-box,
+                  linear-gradient(135deg, #667eea, #764ba2, #f093fb, #667eea) border-box;
+      animation: borderGlow 3s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% {
+        filter: hue-rotate(0deg) brightness(1.2);
+      }
+      50% {
+        filter: hue-rotate(30deg) brightness(1.5);
+      }
+    }
+
+    .carousel-item {
+      height: 600px;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .carousel-item img {
+      height: 100%;
+      object-fit: contain;
+      animation: zoomIn 0.6s ease-out;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0.5;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 80px;
+      height: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-control-prev {
+      left: -100px;
+    }
+
+    .carousel-control-next {
+      right: -100px;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.15);
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.8));
+    }
+
+    .carousel-control-prev:hover i,
+    .carousel-control-next:hover i {
+      color: #f093fb;
+      filter: drop-shadow(0 0 20px rgba(240, 147, 251, 1));
+      animation: pulse 0.6s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .carousel-indicators {
+      bottom: -50px;
+    }
+
+    .carousel-indicators button {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin: 0 8px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid #fff;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-indicators button.active {
+      background-color: #f093fb;
+      transform: scale(1.3);
+      box-shadow: 0 0 20px rgba(240, 147, 251, 0.8);
+    }
+
+    .carousel-indicators button:hover {
+      background-color: #fff;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      #certificates h2 {
+        font-size: 2.5rem;
+      }
+
+      .carousel-inner {
+        height: 400px;
+      }
+
+      .carousel-item {
+        height: 400px;
+      }
+
+      .carousel-control-prev {
+        left: -20px;
+      }
+
+      .carousel-control-next {
+        right: -20px;
+      }
+
+      .carousel-control-prev i,
+      .carousel-control-next i {
+        font-size: 2.5rem;
+      }
+    }
+
+
+    
