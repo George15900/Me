@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+@property --s {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --sm {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: -180%;
+}
+@property --x2 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --sc {
+  syntax: '<numbers>';
+  inherits: false;
+  initial-value: 1;
+}
+@property --ry {
+  syntax: '<degrees>';
+  inherits: false;
+  initial-value: -33deg;
+}
+@property --ry2 {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100svh;
+  background: #000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene,
+.scene2 {
+  position: relative;
+  color: #fff;
+  font-size: 10rem;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.scene2 {
+  position: absolute;
+}
+
+.scene {
+  width: fit-content;
+}
+
+.scene span {
+  display: block;
+}
+
+.move-number {
+  position: absolute;
+  right: 0;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: translateX(var(--x));
+  animation: move 9s linear forwards;
+  will-change: transform;
+}
+
+.move-letter {
+  position: absolute;
+  left: var(--x2);
+  right: 0;
+  opacity: 0;
+  transform: rotate(var(--ry2));
+  animation: moveletter .9s 4s ease-in-out forwards;
+  display: inline-block;
+  width: fit-content;
+}
+
+.last-item {
+  transform: scale(1, var(--sc)) rotateY(var(--ry)) translateZ(-3px);
+  color: red;
+  transition: transform 0.3s linear;
+}
+
+.number-container {
+  mask: linear-gradient(to right, transparent 0%, black 0%, black var(--s), transparent var(--s));
+  transform: translateZ(2px);
+  animation: move2 9s ease-in-out forwards;
+}
+
+.msn-container {
+  mask: linear-gradient(to right, transparent 0%, black 0%, black var(--sm), transparent var(--sm));
+  animation: msn-container 9s 4.07s ease-in-out forwards;
+}
+
+.mask-number {
+  display: flex;
+}
+
+.mask-number span {
+  color: red;
+}
+
+@keyframes move {
+  0% {
+    --x: -180%;
+    --sc: 1;
+    --ry: -33deg;
+  }
+  1% {
+    --sc: 2;
+  }
+  10%, 100% {
+    --sc: 2;
+    --x: 94%;
+  }
+  22%, 100% {
+    --sc: 1;
+    --ry: 0deg;
+  }
+  30.2%, 40% {
+    --x: 94%;
+    --ry: -33deg;
+    --sc: 2;
+  }
+  40%, 100% {
+    --x: -180%;
+    --sc: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  100% {
+    --x: -187%;
+    --sc: 1;
+    --ry: -33deg;
+    opacity: 0;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    --s: 0%;
+  }
+  11%, 100% {
+    --s: 100%;
+  }
+  19%, 30% {
+    --s: 100%;
+  }
+  39%, 100% {
+    --s: 0%;
+  }
+}
+
+@keyframes msn-container {
+  0% {
+    filter: blur(30px) contrast(10);  
+    --sm: 0%;
+  }
+  11%, 100% {
+    filter: blur(0px) contrast(10);  
+    --sm: 100%;
+  }
+}
+
+@keyframes moveletter {
+  0% {
+    opacity: 0;
+    --x2: 0%;
+    --ry2: 0deg; 
+  }
+  2%, 100% {
+    opacity: 1;
+  }
+  100% {
+    --x2: 87%;
+    --ry2: 720deg;
+  }
+}
+.loader {
+  z-index: 2;
+  text-align: center;
+  color: white;
+  animation: fadein 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadein {
+  100% { opacity: 1; }
+}
+
+/* ✨ MAIN TITLE */
+.loader h1 {
+  font-size: 42px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #ff0050;
+  text-shadow: 0 0 15px #ff0050, 0 0 30px #ff0044;
+  animation: popIn 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ✨ SUBTEXT */
+.loader p {
+  margin-top: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #ddd;
+  animation: fadeInUp 1.7s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ✨ LOADING DOTS */
+.dots {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ff0050;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+  box-shadow: 0 0 10px #ff0050;
+}
+.welcome-text {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #f3eaed;
+  text-shadow: 0 0 10px #c2bebf, 0 0 20px #ddd2d5, 0 0 40px #d7cdcf;
+  animation: glow 2.5s infinite alternate ease-in-out,
+             fadeInScale 1.5s ease-out forwards;
+  opacity: 0;
+}
+        
+    </style>
+      <script>
+    for(let i = 0; i < 35; i++){
+      let p = document.createElement("span");
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.animationDuration = 4 + Math.random() * 6 + "s";
+      p.style.animationDelay = Math.random() * 5 + "s";
+      document.querySelector('.particles').appendChild(p);
+    }
+  </script>
+    <meta http-equiv="refresh" content="7; url=html.html">
+    
+    </head>
+
+<body>
+
+<div class="scene">
+  <div class="move-number">
+    <span class="last-item">t</span>
+  </div>
+  <div class="number-container">
+    <span class="mask-number">George Vincen</span>
+  </div>
+</div>
+<div class="scene2">
+  <div class="move-letter">
+    <span class="last-item">
+      </span>
+  </div><span>
+  <div class="msn-container">
+    <span class="mask-number"><div class="loader">
+  <h1>Loading</h1>
+  <p>Please wait</p></span>
+<span>
+   <p style="font-size: 18px;">Welcome to My George Vincent Portfolio!..</p>
+
+      <div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</span>
+  </div>
+</div>
+    
+</body>
+</html>
