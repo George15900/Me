@@ -791,159 +791,108 @@
         .chatbot-messages::-webkit-scrollbar-thumb {
             background: var(--accent-1);
             border-radius: 10px;
-        }@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        }/* Contact Section Layout */
+.contact-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.cs{
+.cs {
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    padding: 40px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Main Button Style */
-.cm{
+
+/* Button Style */
+.cm {
     position: relative;
     display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 0;
+    padding: 18px 30px;
     color: #03e9f4;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     overflow: hidden;
-    margin-right: 50px;
-    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
 }
 
-/* HOVER EFFECT */
-#rm a:hover{
+.cm:hover {
     background: #03e9f4;
-    color: #050801;
-    box-shadow: 
-        0 0 5px #03e9f4,
-        0 0 25px #03e9f4,
-        0 0 50px #03e9f4,
-        0 0 200px #03e9f4;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    color: black;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
 }
 
-/* Button color variations */
-#rm a:nth-child(1){
-    filter: hue-rotate(270deg);
-}
-#rm a:nth-child(2){
-    filter: hue-rotate(110deg);
-}
-
-/* Border Animation */
-#rm a span{
+.cm span {
     position: absolute;
     display: block;
 }
 
-#rm a span:nth-child(1){
+/* Animations */
+.cm span:nth-child(1){
     top: 0; left: 0;
     width: 100%; height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    background: linear-gradient(90deg,transparent,#03e9f4);
     animation: animate1 1s linear infinite;
 }
-@keyframes animate1{
-    0%{ left: -100%; }
-    50%,100%{ left: 100%; }
-}
 
-#rm a span:nth-child(2){
+.cm span:nth-child(2){
     top: -100%; right: 0;
     width: 2px; height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg,transparent,#03e9f4);
     animation: animate2 1s linear infinite;
     animation-delay: 0.25s;
 }
-@keyframes animate2{
-    0%{ top: -100%; }
-    50%,100%{ top: 100%; }
-}
 
-#rm a span:nth-child(3){
+.cm span:nth-child(3){
     bottom: 0; right: 0;
     width: 100%; height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg,transparent,#03e9f4);
     animation: animate3 1s linear infinite;
     animation-delay: 0.50s;
 }
-@keyframes animate3{
-    0%{ right: -100%; }
-    50%,100%{ right: 100%; }
-}
 
-#rm a span:nth-child(4){
+.cm span:nth-child(4){
     bottom: -100%; left: 0;
     width: 2px; height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg,transparent,#03e9f4);
     animation: animate4 1s linear infinite;
     animation-delay: 0.75s;
 }
-@keyframes animate4{
-    0%{ bottom: -100%; }
-    50%,100%{ bottom: 100%; }
-}
+
+/* Keyframes */
+@keyframes animate1 {0%{left:-100%} 50%,100%{left:100%}}
+@keyframes animate2 {0%{top:-100%} 50%,100%{top:100%}}
+@keyframes animate3 {0%{right:-100%} 50%,100%{right:100%}}
+@keyframes animate4 {0%{bottom:-100%} 50%,100%{bottom:100%}}
 
 
-/* ============================================
-   RESPONSIVE PART
-============================================ */
-
-/* ------- MOBILE PHONES (0–480px) ------- */
-@media (max-width: 480px){
-
-    .cs{
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .cs {
         flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
+        align-items: center;
     }
 
-    .cm{
-        padding: 14px 20px;
-        margin: 20px 0;
+    .cm {
+        width: 80%;
+        text-align: center;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cm {
+        width: 90%;
         font-size: 14px;
-        letter-spacing: 2px;
-        margin-right: 0;
-    }
-}
-
-/* ------- TABLETS (481–768px) ------- */
-@media (max-width: 768px){
-
-    .cs{
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 0;
-    }
-
-    .cm{
-        padding: 20px 28px;
-        font-size: 16px;
-        letter-spacing: 3px;
-        margin-right: 0;
-        margin-bottom: 25px;
-    }
-}
-
-/* ------- LAPTOP + DESKTOP (769px+) ------- */
-@media (min-width: 769px){
-
-    .cm{
-        padding: 25px 35px;
-        font-size: 18px;
+        padding: 14px;
     }
 }
 
@@ -1047,6 +996,7 @@ img {
 .box {
   flex: 1 1 100%; /* full width on mobile */
 }
+
 
 
 
