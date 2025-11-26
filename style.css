@@ -791,14 +791,9 @@
         .chatbot-messages::-webkit-scrollbar-thumb {
             background: var(--accent-1);
             border-radius: 10px;
-        }@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/* Contact Section Layout */
+        }/* ================================
+   CONTACT SECTION LAYOUT
+================================ */
 .contact-links {
     width: 100%;
     display: flex;
@@ -813,8 +808,9 @@
     gap: 20px;
 }
 
-
-/* Button Style */
+/* ================================
+   CONTACT BUTTON (NEON EFFECT)
+================================ */
 .cm {
     position: relative;
     display: inline-block;
@@ -831,10 +827,11 @@
 .cm:hover {
     background: #03e9f4;
     color: black;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 200px #03e9f4;
+    box-shadow: 
+        0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 200px #03e9f4;
 }
 
 .cm span {
@@ -842,46 +839,74 @@
     display: block;
 }
 
-/* Animations */
+/* ================================
+   BORDER ANIMATION
+================================ */
 .cm span:nth-child(1){
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg,transparent,#03e9f4);
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
     animation: animate1 1s linear infinite;
 }
 
 .cm span:nth-child(2){
-    top: -100%; right: 0;
-    width: 2px; height: 100%;
-    background: linear-gradient(180deg,transparent,#03e9f4);
+    top: -100%; 
+    right: 0;
+    width: 2px; 
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
     animation: animate2 1s linear infinite;
     animation-delay: 0.25s;
 }
 
 .cm span:nth-child(3){
-    bottom: 0; right: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(270deg,transparent,#03e9f4);
+    bottom: 0; 
+    right: 0;
+    width: 100%; 
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
     animation: animate3 1s linear infinite;
     animation-delay: 0.50s;
 }
 
 .cm span:nth-child(4){
-    bottom: -100%; left: 0;
-    width: 2px; height: 100%;
-    background: linear-gradient(360deg,transparent,#03e9f4);
+    bottom: -100%; 
+    left: 0;
+    width: 2px; 
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
     animation: animate4 1s linear infinite;
     animation-delay: 0.75s;
 }
 
-/* Keyframes */
-@keyframes animate1 {0%{left:-100%} 50%,100%{left:100%}}
-@keyframes animate2 {0%{top:-100%} 50%,100%{top:100%}}
-@keyframes animate3 {0%{right:-100%} 50%,100%{right:100%}}
-@keyframes animate4 {0%{bottom:-100%} 50%,100%{bottom:100%}}
+/* ================================
+   KEYFRAMES
+================================ */
+@keyframes animate1 {
+    0% { left: -100% }
+    50%, 100% { left: 100% }
+}
 
+@keyframes animate2 {
+    0% { top: -100% }
+    50%, 100% { top: 100% }
+}
 
-/* 📱 Mobile Responsive */
+@keyframes animate3 {
+    0% { right: -100% }
+    50%, 100% { right: 100% }
+}
+
+@keyframes animate4 {
+    0% { bottom: -100% }
+    50%, 100% { bottom: 100% }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
 @media (max-width: 768px) {
     .cs {
         flex-direction: column;
@@ -902,6 +927,7 @@
         padding: 14px;
     }
 }
+
   .gallery-item video {
         width: 100%;
         height: 100%;
@@ -1002,6 +1028,7 @@ img {
 .box {
   flex: 1 1 100%; /* full width on mobile */
 }
+
 
 
 
