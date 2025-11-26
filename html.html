@@ -21,25 +21,39 @@
 
 <body>
 
-  
-  <!-- Header -->
   <header>
-  <nav>
-    <div class="logo">George Vincent</div>
+  <nav class="navbar">
+    <div class="logo" style="color:  #1565b9;">George Vincent</div>
 
-    <!-- Mobile Menu Button -->
-    
+    <!-- Mobile Menu Toggle Button -->
+    <div class="menu-btn" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-    <ul id="nav-links">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#skills">Skills</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#certificates">Certificates</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a class="nav-link" href="#about" style="color:  #1565b9;">About</a></li>
+      <li><a class="nav-link" href="#skills" style="color:  #1565b9;">Skills</a></li>
+      <li><a class="nav-link" href="#projects" style="color:  #1565b9;">Projects</a></li>
+      <li><a class="nav-link" href="#certificates" style="color:  #1565b9;">Certificates</a></li>
+      <li><a class="nav-link" href="#contact" style="color:  #1565b9;">Contact</a></li>
       <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
     </ul>
   </nav>
 </header>
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      menuBtn.classList.toggle("active");
+    });
+</script>
+  
+  <!-- Header -->
+  
 
 
 <!-- Hero Section -->
@@ -201,7 +215,7 @@ From:</b> Kerala, India
 
 
 
-  <section id="projects">
+  <section id="projects" >
     <h2 style="text-align:center; margin-top:20px;">Featured Projects</h2>
 
     <div class="projects">
@@ -215,7 +229,7 @@ From:</b> Kerala, India
             </div>
             <div class="project-content">
                <h3>Aggro Assist</h3>
-          <p>A website developed for customers to booking Groups Farmers for working the specified land for the customers. The program Language used as PHP, MYSQL, CSS, JavaScript and HTML.</p>
+          <p style="color:  white;">A website developed for customers to booking Groups Farmers for working the specified land for the customers. The program Language used as PHP, MYSQL, CSS, JavaScript and HTML.</p>
         </div>
         <p class="text-center">Full Screen</p>
         </div>
@@ -230,7 +244,7 @@ From:</b> Kerala, India
             </div>
             <div class="project-content">
                 <h3> Studio Website</h3>
-          <p>A website developed for customers to get details or information about the studio and see the sample works of the studio. The program Language used as MYSQL, PHP, CSS, JavaScript and HTML.</p>
+          <p style="color:  white;">A website developed for customers to get details or information about the studio and see the sample works of the studio. The program Language used as MYSQL, PHP, CSS, JavaScript and HTML.</p>
         </div>
         <p class="text-center">Full Screen</p>
         </div>
@@ -244,7 +258,7 @@ From:</b> Kerala, India
             </div>
             <div class="project-content">
                 <h3>College Admission  </h3>
-          <p>A website developed for students for applying course and get details or information about the college. The program Language used as PHP, MYSQL, CSS, JavaScript and HTML</p>
+          <p style="color:  white;">A website developed for students for applying course and get details or information about the college. The program Language used as PHP, MYSQL, CSS, JavaScript and HTML</p>
         </div>
         <p class="text-center">Full Screen</p>
         </div>
