@@ -182,4 +182,12 @@ function closeVideoModal() {
     video.pause();
     video.src = "";  
     modal.classList.remove("active");
+
 }
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      menuBtn.classList.toggle("active");
+    });
