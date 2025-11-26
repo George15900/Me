@@ -838,28 +838,7 @@
         font-size: 13px;
     }
 }
-.cs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-}
-.cm{
-    position: relative;
-    display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 0;
-    color: #03e9f4;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: 0.5s;
-    letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
-   
-}
 #rm a:hover{
     background: #03e9f4;
     color: #050801;
@@ -1048,6 +1027,7 @@ img {
 .box {
   flex: 1 1 100%; /* full width on mobile */
 }
+
 
 
 
